@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- =========================
+         METADATOS BÁSICOS
+    ========================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Contacto | MorningStar Marketing</title>
+    <meta name="description"
+          content="Contáctanos en MorningStar Marketing. Solicita cotizaciones, revisiones de sitios web o asesoría en marketing digital.">
+    <meta name="keywords"
+          content="contacto marketing digital, cotización marketing, agencia de marketing, diseño web">
+    <meta name="author" content="MorningStar Marketing">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contacto | MorningStar Marketing">
+    <meta property="og:description"
+          content="Hablemos sobre tu proyecto. Marketing digital, diseño web y crecimiento.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.morningstarmarketing.com/contact.html">
+    <meta property="og:image" content="https://www.morningstarmarketing.com/assets/og-contact.jpg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/contact.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="icon/1x/iconMesa de trabajo 2.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================== HEADER ================== -->
+<header role="banner">
+    <nav class="navbar" aria-label="Navegación principal">
+        <div class="nav-left">
+            <a href="index.html" aria-label="MorningStar Marketing - Inicio">
+                <img src="Logo/1x/logo2.png"
+                     class="logo"
+                     alt="Logo de MorningStar Marketing"
+                     width="120">
+            </a>
+        </div>
+
+        <div class="nav-center">
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="services.html">Servicios</a></li>
+                <li><a href="about.html">Sobre Nosotros</a></li>
+                <li><a href="contact.html" aria-current="page">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- ================== MAIN ================== -->
+<main id="contenido-principal" role="main">
+
+    <!-- ================== FORMULARIO ================== -->
+    <form class="contact-form"
+          aria-labelledby="contact-title"
+          aria-describedby="contact-description">
+
+        <h1 id="contact-title">Contáctanos</h1>
+
+        <p id="contact-description">
+            Cuéntanos qué necesitas y nos pondremos en contacto contigo lo antes posible.
+        </p>
+
+        <!-- Tipo de solicitud -->
+        <label for="requestType">Tipo de solicitud</label>
+        <select id="requestType"
+                class="request-type"
+                aria-required="true">
+            <option value="contact">Contacto general</option>
+            <option value="changes">Solicitud de cambios</option>
+            <option value="review">Revisión de sitio web</option>
+            <option value="quote">Cotización</option>
+        </select>
+
+        <!-- Nombre -->
+        <label for="name">Nombre</label>
+        <input type="text"
+               id="name"
+               name="name"
+               required
+               aria-required="true">
+
+        <!-- Email -->
+        <label for="email">Email</label>
+        <input type="email"
+               id="email"
+               name="email"
+               required
+               aria-required="true">
+
+        <!-- Campos dinámicos -->
+        <div id="dynamicFields"
+             aria-live="polite"
+             aria-atomic="true">
+        </div>
+
+        <!-- Mensaje -->
+        <label for="message">Mensaje</label>
+        <textarea id="message"
+                  name="message"
+                  rows="5"></textarea>
+
+        <button type="submit" aria-label="Enviar formulario de contacto">
+            Enviar solicitud
+        </button>
+
+    </form>
+
+</main>
+
+<!-- ================== FOOTER ================== -->
+<footer class="footer" role="contentinfo">
+
+    <div class="footer-left">
+        <p>
+            &copy; Powered by <strong>MorningStar Agencia de Marketing</strong><sup>™</sup>
+        </p>
+    </div>
+
+    <div class="footer-right" aria-label="Redes sociales">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener"
+           aria-label="Instagram de MorningStar Marketing">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://www.facebook.com" target="_blank" rel="noopener"
+           aria-label="Facebook de MorningStar Marketing">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://www.youtube.com" target="_blank" rel="noopener"
+           aria-label="YouTube de MorningStar Marketing">
+            <i class="fab fa-youtube" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://www.tiktok.com" target="_blank" rel="noopener"
+           aria-label="TikTok de MorningStar Marketing">
+            <i class="fab fa-tiktok" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://wa.me/573001234567" target="_blank" rel="noopener"
+           aria-label="WhatsApp de MorningStar Marketing">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+
+        <a href="mailto:contacto@morningstar.com"
+           aria-label="Enviar correo a MorningStar Marketing">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+    </div>
+</footer>
+
+<!-- ================== SCRIPT ================== -->
+<script>
+const requestType = document.getElementById("requestType");
+const dynamicFields = document.getElementById("dynamicFields");
+
+function updateFields() {
+    let type = requestType.value;
+
+    if (type === "changes") {
+        dynamicFields.innerHTML = `
+            <label for="site-url">URL del sitio</label>
+            <input id="site-url" type="url" placeholder="https://...">
+
+            <label for="changes-desc">¿Qué deseas modificar?</label>
+            <textarea id="changes-desc" rows="3"></textarea>
+        `;
+    }
+
+    if (type === "review") {
+        dynamicFields.innerHTML = `
+            <label for="review-url">URL del sitio</label>
+            <input id="review-url" type="url">
+
+            <label for="review-goal">Objetivo del sitio</label>
+            <input id="review-goal" type="text">
+
+            <label for="review-problem">Principal problema</label>
+            <textarea id="review-problem" rows="3"></textarea>
+        `;
+    }
+
+    if (type === "quote") {
+        dynamicFields.innerHTML = `
+            <label for="service-type">Tipo de servicio</label>
+            <select id="service-type">
+                <option>Landing Page</option>
+                <option>Sitio web</option>
+                <option>Branding</option>
+                <option>Marketing</option>
+            </select>
+
+            <label for="budget">Presupuesto aproximado</label>
+            <select id="budget">
+                <option>Menos de $1M</option>
+                <option>$1M – $3M</option>
+                <option>$3M – $6M</option>
+                <option>Más de $6M</option>
+            </select>
+        `;
+    }
+
+    if (type === "contact") {
+        dynamicFields.innerHTML = "";
+    }
+}
+
+requestType.addEventListener("change", updateFields);
+updateFields();
+</script>
+
+</body>
+</html>
